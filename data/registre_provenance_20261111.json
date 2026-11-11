@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-11",
+  "scope": "COU-87 — suivi documentaire et vérification séparateurs",
+  "publication_policy": "draft_only_no_automatic_publication",
+  "gates": {
+    "No Status → No Publish": true,
+    "No Certificate → No Action": true
+  },
+  "status_vocabulary": [
+    "démontré",
+    "certifié",
+    "reproduit",
+    "compilé localement",
+    "conditionnel",
+    "à vérifier",
+    "non exécuté",
+    "non certifié"
+  ],
+  "datasets": [
+    {
+      "id": "BC_MOD30_ARCHIVE",
+      "domain": "BC_MOD30, reconstruction finie",
+      "counts": {
+        "states": 147,
+        "behavioral_classes": 101,
+        "pairs": 5050,
+        "minimum_word_length_counts": [
+          3854,
+          1158,
+          38
+        ]
+      },
+      "status": "à vérifier",
+      "note": "Totaux présents dans un bilan archivé ; générateur original et graphe de transitions versionné signalés manquants. Ces chiffres ne sont pas une matrice de séparation complète.",
+      "source": {
+        "repository": "alexcour/couret-multi-ia-lab",
+        "path": "reports/interia_bilan_20261107.json",
+        "section": "finite.BC_MOD30",
+        "url": "https://github.com/alexcour/couret-multi-ia-lab/blob/main/reports/interia_bilan_20261107.json"
+      }
+    },
+    {
+      "id": "COU87_OBSERVATIONS",
+      "domain": "COU-87 — observations commutatives",
+      "counts": {
+        "raw_observations": 73,
+        "reduced_observations": 45
+      },
+      "status": "à vérifier",
+      "note": "Réduction rapportée dans le cadrage utilisateur; tables de correspondance 73→45, identifiants et empreintes non reçus dans cet audit.",
+      "source": null
+    },
+    {
+      "id": "PR547_STROBO",
+      "domain": "STROBO-4 fibres de cardinal 4 sur groupes cycliques, distinct de BC_MOD30",
+      "status": "démontré",
+      "proof_kind": "argument mathématique sur papier rapporté dans PR547, non certifié Lean",
+      "theorem": "Pour toute fibre STROBO de cardinal exactement quatre du carré de convolution ordonnée de supports à quatre éléments dans C_n, deux lectures binaires exactes sont suffisantes et nécessaires.",
+      "limitations": [
+        "ne prouve pas la classification de toutes les fibres en tailles 1,2,4",
+        "Lean non exécuté dans la note",
+        "CI au HEAD à vérifier",
+        "aucun effet sur la sécurité FCI"
+      ],
+      "source": {
+        "pr": "https://github.com/alexcour/couret-multi-ia-lab/pull/547",
+        "commit": "5ecd1cc41de7aecb305eb4aa20adf2b3f27cc1b2",
+        "path": "research/fibre-separation-20261109/THEOREME_UNIVERSEL_CYCLIQUE.md"
+      }
+    },
+    {
+      "id": "PR547_FINITE_CHECKER",
+      "domain": "Certificats finis pour vecteurs binaires de largeur 1 à 16",
+      "status": "conditionnel",
+      "note": "Le module fournit certify/verify et des témoins de collisions pour les ensembles plus petits. Disponibilité d'un vérificateur n'est pas certificat COU-87 ni résultat CI.",
+      "source": {
+        "pr": "https://github.com/alexcour/couret-multi-ia-lab/pull/547",
+        "commit": "5ecd1cc41de7aecb305eb4aa20adf2b3f27cc1b2",
+        "path": "research/fibre-separation-20261109/minimal_separator.py"
+      }
+    }
+  ],
+  "missing_artifacts": [
+    {
+      "id": "DATA-101",
+      "label": "Liste des 101 classes comportementales, identifiants, représentants et rattachement aux 147 états",
+      "status": "non certifié"
+    },
+    {
+      "id": "DATA-45",
+      "label": "Matrice complète 101×45 ou équivalent vérifiable des observations par classe",
+      "status": "non certifié"
+    },
+    {
+      "id": "MAP-73-45",
+      "label": "Correspondance justifiée des 73 observations aux 45 colonnes non redondantes",
+      "status": "à vérifier"
+    },
+    {
+      "id": "PAIR-5050",
+      "label": "Identifiants canoniques et couverture de chacune des 5 050 paires",
+      "status": "non certifié"
+    },
+    {
+      "id": "CANDIDATES",
+      "label": "Ensembles candidats et registre des paires non séparées par chacun",
+      "status": "non certifié"
+    },
+    {
+      "id": "LOWER-BOUND",
+      "label": "Preuve d'échec de chaque ensemble de cardinal inférieur, témoin et vérificateur",
+      "status": "non certifié"
+    },
+    {
+      "id": "TRACE",
+      "label": "SHA-256 des données, commit source, journal local et run CI réellement exécuté",
+      "status": "à vérifier"
+    },
+    {
+      "id": "REVIEW",
+      "label": "Relecture scientifique indépendante et décision explicite",
+      "status": "non exécuté"
+    }
+  ],
+  "decisions": {
+    "global_optimality": "non certifié",
+    "ci_certification": "à vérifier",
+    "publication_of_scientific_conclusions": "blocked",
+    "native_fci_action": "blocked"
+  },
+  "actions_taken": [
+    "Consultation des sources existantes",
+    "Archivage documentaire dans branche de travail"
+  ],
+  "actions_not_taken": [
+    "Aucun nouveau calcul de séparation",
+    "Aucune expérience",
+    "Aucun ticket",
+    "Aucun changement à main du dépôt scientifique",
+    "Aucune promotion de certification",
+    "Aucune diffusion automatique d'une conclusion scientifique"
+  ]
+}
